@@ -27,8 +27,16 @@ def print_matrix(matrix):
         print()
 
 
+def print_matrix2(A):
+    for row in A:
+        row_str = ''.join(str(a) + ' ' for a in row)
+        print(row_str)
+
+
 mat = [[1, 1, 1, 1, 1], [2, 2, 2, 2, 2], [3, 3, 3, 3, 3]]
 print_matrix(mat)
+print('---------')
+print_matrix2(mat)
 
 # print(multiply_vector_by_scalar([1, 1, 1, 1], 3))
 
