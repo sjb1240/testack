@@ -12,12 +12,26 @@ def multiply_matrix_by_matrix(a, b):
 
 
 def transpose(matrix):
-    pass
-
+    mat_transpose = [[None]*len(matrix)] * len(matrix[0])
+    for a in range(len(matrix[0])):
+        for b in range(len(matrix)):
+            mat_transpose[a][b] = matrix[b][a]
+    print_matrix(mat_transpose)    
 
 def add_matrix(A, B):
-    pass
+    if len(A) == len(B):
+        sum_matrix = [None]*len(A)
+        for a in range(len(A)):
+            sum_matrix[a] = add_vectors(A[a], B[a])
+    print_matrix(sum_matrix)
 
+#add single column/row vectors
+def add_vectors(A,B):
+    if len(A) == len(B):
+        new_vector = [None]*len(A)
+        for a in range(len(A)):
+            new_vector[a] = A[a] + B[a]
+        return new_vector
 
 def print_matrix(matrix):
     for row in matrix:
