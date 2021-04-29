@@ -20,9 +20,13 @@ function Game() {
                 <div>{
                     winner ? `Winner ${winner}` : `Next Player ${xIsNext ? 'X' : 'O'}`
                 }</div>
-                <Board board={current} onClick={handleClick} />
+                <Board board={current} onClick={handleClick} rows={3} cols={3} />
             </Column>
             <Log history={gameState.history} jumpTo={jumpTo} />
+            <Column gap={50}>
+                <button>New Row</button>
+                <button>New Col</button>
+            </Column>
         </Row>
     );
 }

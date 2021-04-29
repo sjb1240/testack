@@ -33,7 +33,6 @@ def transpose(mat):
 
 def print_matrix(mat):
     for row in mat:
-        # print(row)
         for a in row:
             print(a, end=" ")
         print()
@@ -61,7 +60,7 @@ def add_matrix(mat_a, mat_b):
 
 m1 = [[3, 4, 2]]
 m2 = [[13, 9, 7, 15], [8, 7, 4, 6], [6, 4, 0, 3]]
-print_matrix(multiply_matrix_by_matrix(m1, m2))
+# print_matrix(multiply_matrix_by_matrix(m1, m2))
 # print_matrix(add_matrix(m1, m2))
 
 

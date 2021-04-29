@@ -1,3 +1,4 @@
+import { RecordWithTtl } from 'node:dns';
 import * as React from 'react';
 import styled from 'styled-components';
 import { Value } from './GameState';
@@ -13,12 +14,13 @@ const StyledSquare = styled.button`
 `;
 export type SquareProps = {
     value: Value;
+    pos: Array<Number>;
     onClick: () => void;
 };
 export function Square(props: SquareProps) {
     return (
         <StyledSquare onClick={props.onClick}>
-            {props.value}
+            {props.pos[0]},{props.pos[1]}
         </StyledSquare>
     );
 }
