@@ -1,58 +1,48 @@
-import matrix
-# -------------------------------------------------
-# Multiply a vector by a scalar
-# -------------------------------------------------
+import matrix as m
+import unittest
 
-# vec1 = [0, 1, 2, 3, 4]
-# vec2 = [259, 1234, 12]
-# scal1 = 2
-# scal2 = 100
-# r1 = [0, 2, 4, 6, 8]
-# r2 = [25900, 123400, 1200]
-# if (matrix.multiply_vector_by_scalar(vec1, scal1) == r1) and (matrix.multiply_vector_by_scalar(vec2, scal2) == r2):
-#     print("Passed all test cases")
-# else:
-#     print("Failed one or more test cases")
 
-# -------------------------------------------------
-# multiply a matrix by a scalar
-# -------------------------------------------------
+class test_matrix(unittest.TestCase):
 
-# mat1 = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
-# scal1 = 2
-# res1 = [[0, 2, 4], [6, 8, 10], [12, 14, 16]]
+    def test_multiply_vector_by_scalar(self):
+        v = m.multiply_vector_by_scalar([1, 1, 1, 1], 3)
+        v2 = m.multiply_vector_by_scalar([0, 1, 2, 3, 4], 2)
+        self.assertEqual(v, [3, 3, 3, 3])
+        self.assertIsInstance(v, list)
+        self.assertEqual(v2, [0, 2, 4, 6, 8])
+        self.assertIsInstance(v2, list)
 
-# mat2 = [[10, 20, 30], [1, 2, 3], [0, 0, 0]]
-# scal2 = 10
-# res2 = [[100, 200, 300], [10, 20, 30], [0, 0, 0]]
+    def test_multiply_matrix_by_scalar(self):
+        mat = m.multiply_matrix_by_scalar([[1, 1, 1], [1, 1, 1], [1, 1, 1]], 2)
+        mat2 = m.multiply_matrix_by_scalar(
+            [[12, 1000, 1], [2345, 1, 1], [1, 981234, 12309]], 0)
+        r1 = [[2, 2, 2], [2, 2, 2], [2, 2, 2]]
+        r2 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        self.assertEqual(mat, r1)
+        self.assertEqual(mat2, r2)
 
-# if (matrix.multiply_matrix_by_scalar(mat1, scal1) == res1) and (matrix.multiply_matrix_by_scalar(mat2, scal2) == res2):
-#     print("Passed all test cases")
-# else:
-#     print("Failed one or more test cases")
+    def test_add_matrix(self):
+        m1 = [[1, 1, 1], [2, 2, 2], [1, 1, 1]]
+        m2 = [[5, 5, 5], [1, 1, 1], [3, 3, 3]]
+        mat = m.add_matrix(m1, m2)
+        r = [[6, 6, 6], [3, 3, 3], [4, 4, 4]]
+        self.assertEqual(mat, r)
 
-# -------------------------------------------------
-# transpose a matrix
-# -------------------------------------------------
+    def test_transpose_matrix(self):
+        mat = m.transpose([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+        res = [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+        self.assertEqual(mat, res)
 
-# mat = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-# res = [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
-# if (matrix.transpose(mat) == res):
-#     print("Passed all test cases")
-# else:
-#     print("Failed one or more test cases")
+    def test_multiply_matrix_by_matrix(self):
+        m1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+        m2 = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+        mat = m.multiply_matrix_by_matrix(m1, m2)
+        mat2 = m.multiply_matrix_by_matrix(m1, m1)
+        res2 = [[30, 36, 42], [66, 81, 96], [102, 126, 150]]
+        res = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+        self.assertEqual(mat, res)
+        self.assertEqual(mat2, res2)
 
-# -------------------------------------------------
-# Multiply a matrix by another matrix
-# -------------------------------------------------
 
-# m1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-# m2 = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
-# res = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-
-# res2 = [[30, 36, 42], [66, 81, 96], [102, 126, 150]]
-
-# if (matrix.multiply_matrix_by_matrix(m1, m2) == res) and (matrix.multiply_matrix_by_matrix(m1, m1) == res2):
-#     print("Passed all test cases")
-# else:
-#     print("Failed one or more test cases")
+if __name__ == "__main__":
+    unittest.main()

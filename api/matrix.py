@@ -45,6 +45,8 @@ def print_matrix_2(A):
 
 
 def add_matrix(mat_a, mat_b):
+    if (len(mat_a) != len(mat_b)) or (len(mat_a[0]) != len(mat_b[0])):
+        return False
     new_mat = []
     for i in range(len(mat_a)):
         new_row = []
